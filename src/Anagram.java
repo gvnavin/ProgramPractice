@@ -10,8 +10,13 @@ public class Anagram {
   }
 
   private boolean isAnagramOrNotV1(String firstString, String secondString) {
-    HashMap<Character, Integer> firstStringVisitedCount = getCharactersCountHashMap(
-        firstString);
+    HashMap<Character, Integer> firstStringVisitedCount = new HashMap<>();
+    for (int i = 0; i < secondString.length(); i++) {
+      Character characterFromString = firstString.charAt(i);
+      final Integer count = firstStringVisitedCount.getOrDefault(characterFromString, 0);
+      firstStringVisitedCount.put(characterFromString, count+1);
+    }
+
 
     HashMap<Character, Integer> secondStringVisitedCount = new HashMap<>();
     for (int i = 0; i < secondString.length(); i++) {
