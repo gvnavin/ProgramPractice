@@ -119,14 +119,14 @@ public class Anagram {
     return true;
   }
 
-  private HashMap<Character, Integer> getCharactersCountHashMap(String firstString) {
-    HashMap<Character, Integer> firstStringVisitedCount = new HashMap<>();
-    for (int i = 0; i < firstString.length(); i++) {
-      Character characterFromString = firstString.charAt(i);
-      final Integer count = firstStringVisitedCount.getOrDefault(characterFromString, 0);
-      firstStringVisitedCount.put(characterFromString, count + 1);
+  private HashMap<Character, Integer> getCharactersCountHashMap(String string) {
+    HashMap<Character, Integer> visitedCount = new HashMap<>();
+    for (int i = 0; i < string.length(); i++) {
+      Character characterFromString = string.charAt(i);
+      final Integer count = visitedCount.getOrDefault(characterFromString, 0);
+      visitedCount.put(characterFromString, count + 1);
     }
-    return firstStringVisitedCount;
+    return visitedCount;
   }
 
 }
